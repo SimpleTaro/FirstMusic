@@ -16,6 +16,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var songLabel: UILabel!
     var player = MPMusicPlayerController()
+    //TEST
     
     override func viewDidLoad() {
         super.viewDidLoad()
