@@ -16,6 +16,7 @@
 		CE29FDC21DE53EE500E8A33C /* TestMediaPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29FDC11DE53EE500E8A33C /* TestMediaPlayerUITests.swift */; };
 		CE5EF46C1DE59E8A0090E11C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5EF46B1DE59E8A0090E11C /* MediaPlayer.framework */; };
 		CE5EF46E1DE59F630090E11C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5EF46D1DE59F630090E11C /* UIKit.framework */; };
+		CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		CE29FDC31DE53EE500E8A33C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE5EF46B1DE59E8A0090E11C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE5EF46D1DE59F630090E11C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMusicViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				CE29FDA81DE53EE500E8A33C /* Assets.xcassets */,
 				CE29FDAA1DE53EE500E8A33C /* LaunchScreen.storyboard */,
 				CE29FDAD1DE53EE500E8A33C /* Info.plist */,
+				CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */,
 			);
 			path = TestMediaPlayer;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29FDA41DE53EE500E8A33C /* ViewController.swift in Sources */,
+				CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */,
 				CE29FDA21DE53EE500E8A33C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
