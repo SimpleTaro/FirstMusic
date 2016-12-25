@@ -17,6 +17,8 @@
 		CE5EF46C1DE59E8A0090E11C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5EF46B1DE59E8A0090E11C /* MediaPlayer.framework */; };
 		CE5EF46E1DE59F630090E11C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5EF46D1DE59F630090E11C /* UIKit.framework */; };
 		CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */; };
+		CEF024D91E0CFCDB004573E9 /* MusicPlayerAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */; };
+		CEF024DB1E0D0376004573E9 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		CE5EF46B1DE59E8A0090E11C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE5EF46D1DE59F630090E11C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMusicViewController.swift; sourceTree = "<group>"; };
+		CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerAdmin.swift; sourceTree = "<group>"; };
+		CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				CE29FDAA1DE53EE500E8A33C /* LaunchScreen.storyboard */,
 				CE29FDAD1DE53EE500E8A33C /* Info.plist */,
 				CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */,
+				CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */,
+				CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */,
 			);
 			path = TestMediaPlayer;
 			sourceTree = "<group>";
@@ -281,8 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF024D91E0CFCDB004573E9 /* MusicPlayerAdmin.swift in Sources */,
 				CE29FDA41DE53EE500E8A33C /* ViewController.swift in Sources */,
 				CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */,
+				CEF024DB1E0D0376004573E9 /* MusicPlayer.swift in Sources */,
 				CE29FDA21DE53EE500E8A33C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

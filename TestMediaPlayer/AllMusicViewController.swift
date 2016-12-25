@@ -11,27 +11,18 @@ import MediaPlayer
 
 class AllMusicViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    /********************************************
-     バグってます！！！！！！！！！！！！！！！！！！！！！
-    ********************************************/
-    
     @IBOutlet var allMusicTable: UITableView?
     
-    var player : MPMusicPlayerController?
-    //var songs : MPMediaItemCollection?
-    var songQuery : MPMediaQuery?
-    var imgArray = NSMutableArray()
-    var songNameArray = NSMutableArray()
-    var albumArtistArray = NSMutableArray()
+    var musicPlayer = MusicPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("Load")
         // Do any additional setup after loading the view.
-        songQuery = updateSong()
-        updateSongName()
-        updateAlbumTitle()
-        updateArtistImage()
+        musicPlayer.updatePlaylist()
+        allMusicTable?.delegate = self
+        allMusicTable?.dataSource = self
+       // allMusicTable?.register(UITableViewCell.self(_:NSObject), forCellReuseIdentifier: "musicCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,81 +30,43 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    //Queryを取得する
-    func updateSong() -> MPMediaQuery {
-        NSLog("Query")
-        let songQuery: MPMediaQuery = MPMediaQuery.songs()
-        //songs = MPMediaItemCollection(items: songQuery.items!)
-        return songQuery
-    }
-    
-    //Queryからジャケットを取り出す
-    func updateArtistImage(){
-        NSLog("Image")
-        //TODO 初期化必要じゃないか？？？
-        for songsCollections in (songQuery?.collections)!{
-            //imgArray.adding(songsCollections.representativeItem?.artwork)
-            if let artwork = songsCollections.representativeItem?.artwork {
-                let image = artwork.image
-                imgArray.add(image)
-            } else {
-                // アートワークがない時
-                // 今回は灰色にした
-                imgArray.adding("default")
-            }
-        }
-    }
-    
-    //Queryから曲名を取り出す
-    func updateSongName(){
-        NSLog("song")
-        //TODO 初期化必要じゃないか？？？
-        for songCollections in (songQuery?.collections)!{
-            songNameArray.add(songCollections.representativeItem?.title ?? "不明な曲")
-        }
-    }
-    
-    //Queryからアーティストを取り出す
-    func updateAlbumTitle(){
-        NSLog("artist")
-        //TODO 初期化必要じゃないか？？？
-        for songsCollections in (songQuery?.collections)!{
-            albumArtistArray.add(songsCollections.representativeItem?.albumArtist ?? "不明なアーティスト")
-        }
-        NSLog(String(albumArtistArray.count))
-    }
-    
     //tableview のセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
-        NSLog(String((songQuery?.collections!.count)!))
-        return (songQuery?.collections!.count)!
+        return musicPlayer.playlist.count
     }
-    
     //各セルの要素を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        NSLog("セルの設定")
         //tablecellのIDでUITableViewCellのインスタンスを生成
         let cell = allMusicTable?.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath)
+        let item = musicPlayer.playlist[indexPath.row]
         
-        let img = UIImage(named:"¥(imgArray[indexPath.row])")
-        
-        //Tag番号1でUIImageView インスタンス作成
+        let size = CGSize()
         let imageView = allMusicTable?.viewWithTag(1) as! UIImageView
-        imageView.image = img
+        if let artwork = item.artwork {
+            imageView.image = artwork.image(at: size)
+        }
         
-        //Tag番号2で UILabel インスタンス作成
         let label1 = allMusicTable?.viewWithTag(2) as! UILabel
-        label1.text = "\(songNameArray[indexPath.row])"
+        label1.text = item.title
         
-        //Tag番号3で UILabel インスタンスの生成
         let label2 = allMusicTable?.viewWithTag(3) as! UILabel
-        label2.text = "\(albumArtistArray[indexPath.row])"
-        
+        let albumTitle: String = item.albumTitle!
+        let artist: String = item.artist!
+        label2.text = artist + "-" + albumTitle
+
         return cell!
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //タッチされたセルの曲を再生
+        musicPlayer.play(number: indexPath.row)
+        
+        // 選択を解除しておく
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     // MARK: - Navigation
 
