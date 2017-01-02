@@ -18,6 +18,8 @@
 		CE5EF46E1DE59F630090E11C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5EF46D1DE59F630090E11C /* UIKit.framework */; };
 		CEA357A61E0FE39E008EFD99 /* AlbumMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357A51E0FE39E008EFD99 /* AlbumMusicViewController.swift */; };
 		CEA357A81E10051F008EFD99 /* AlbumMusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357A71E10051F008EFD99 /* AlbumMusicDetailViewController.swift */; };
+		CEA357AA1E13F5B6008EFD99 /* ArtistMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357A91E13F5B6008EFD99 /* ArtistMusicViewController.swift */; };
+		CEA357AE1E19273A008EFD99 /* ArtistAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357AD1E19273A008EFD99 /* ArtistAlbumViewController.swift */; };
 		CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */; };
 		CEF024D91E0CFCDB004573E9 /* MusicPlayerAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */; };
 		CEF024DB1E0D0376004573E9 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */; };
@@ -58,6 +60,8 @@
 		CE5EF46D1DE59F630090E11C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEA357A51E0FE39E008EFD99 /* AlbumMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumMusicViewController.swift; sourceTree = "<group>"; };
 		CEA357A71E10051F008EFD99 /* AlbumMusicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumMusicDetailViewController.swift; sourceTree = "<group>"; };
+		CEA357A91E13F5B6008EFD99 /* ArtistMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistMusicViewController.swift; sourceTree = "<group>"; };
+		CEA357AD1E19273A008EFD99 /* ArtistAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistAlbumViewController.swift; path = ../ArtistAlbumViewController.swift; sourceTree = "<group>"; };
 		CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMusicViewController.swift; sourceTree = "<group>"; };
 		CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerAdmin.swift; sourceTree = "<group>"; };
 		CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				CE29FDA11DE53EE500E8A33C /* AppDelegate.swift */,
 				CE29FDA31DE53EE500E8A33C /* ViewController.swift */,
 				CE29FDA51DE53EE500E8A33C /* Main.storyboard */,
+				CEA357AD1E19273A008EFD99 /* ArtistAlbumViewController.swift */,
+				CEA357A91E13F5B6008EFD99 /* ArtistMusicViewController.swift */,
 				CEA357A71E10051F008EFD99 /* AlbumMusicDetailViewController.swift */,
 				CEA357A51E0FE39E008EFD99 /* AlbumMusicViewController.swift */,
 				CE29FDA81DE53EE500E8A33C /* Assets.xcassets */,
@@ -294,11 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF024D91E0CFCDB004573E9 /* MusicPlayerAdmin.swift in Sources */,
+				CEA357AA1E13F5B6008EFD99 /* ArtistMusicViewController.swift in Sources */,
 				CE29FDA41DE53EE500E8A33C /* ViewController.swift in Sources */,
 				CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */,
 				CEA357A81E10051F008EFD99 /* AlbumMusicDetailViewController.swift in Sources */,
 				CEF024DB1E0D0376004573E9 /* MusicPlayer.swift in Sources */,
 				CEA357A61E0FE39E008EFD99 /* AlbumMusicViewController.swift in Sources */,
+				CEA357AE1E19273A008EFD99 /* ArtistAlbumViewController.swift in Sources */,
 				CE29FDA21DE53EE500E8A33C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
