@@ -29,6 +29,14 @@ class MusicPlayer: MusicPlayerAdmin {
         albumPlaylist = [MPMediaItemCollection](allAlbums![0..<albumCount!])
     }
     
+    //全アーティスト取得
+    func updateArtistlist() {
+        let query = MPMediaQuery.artists()
+        var allArtist = query.collections
+        let artistCount = allArtist?.count
+        artistPlaylist = [MPMediaItemCollection](allArtist![0..<artistCount!])
+    }
+    
     //選択されたセルの曲を再生する
     func play(number: Int) {
         if 0 <= number && number < playlist.count {
@@ -41,6 +49,15 @@ class MusicPlayer: MusicPlayerAdmin {
     func updateAlbumPlaylist(number: Int) {
         if 0 <= number && number < albumPlaylist.count {
             playlist = albumPlaylist[number].items
+        }
+    }
+    
+    //アーティスト一覧画面から選択されたアーティストの曲を取得する
+    func updateArtistAlbumMusiclist(artistName: String) {
+        for i in 0..<artistPlaylist.count {
+            if artistPlaylist[i].representativeItem?.albumArtist == artistName {
+                playlist += artistPlaylist[i].items
+            }
         }
     }
 }

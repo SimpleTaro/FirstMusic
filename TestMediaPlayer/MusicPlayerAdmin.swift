@@ -22,6 +22,9 @@ class MusicPlayerAdmin: NSObject {
     //全アルバムのプレイリスト
     var albumPlaylist = [MPMediaItemCollection]()
     
+    //全アーティストのプレイリスト
+    var artistPlaylist = [MPMediaItemCollection]()
+    
     //プレイリストを再生キューにセット
     func playlistToQueue() {
         if playlist.isEmpty == false {

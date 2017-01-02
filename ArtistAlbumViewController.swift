@@ -1,25 +1,21 @@
 //
-//  AlbumMusicDetailViewController.swift
+//  ArtistAlbumViewController.swift
 //  TestMediaPlayer
 //
-//  Created by Takeru on 2016/12/25.
-//  Copyright © 2016年 Takeru. All rights reserved.
+//  Created by Takeru on 2017/01/01.
+//  Copyright © 2017年 Takeru. All rights reserved.
 //
 
 import UIKit
-import MediaPlayer
 
-class AlbumMusicDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ArtistAlbumViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    @IBOutlet var allAlbumMusicDetailTable: UITableView?
+    @IBOutlet var artistAlbumTable: UITableView?
     var musicPlayer = MusicPlayer()
-    
-    @IBOutlet weak var imageView: UIImageView?
-    @IBOutlet weak var artistName: UILabel?
-    @IBOutlet weak var albumName: UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
@@ -31,11 +27,6 @@ class AlbumMusicDetailViewController: UIViewController,UITableViewDataSource,UIT
     //tableview のセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
-
-        let size = CGSize()
-        imageView?.image = musicPlayer.playlist[0].artwork?.image(at: size)
-        artistName?.text = musicPlayer.playlist[0].artist
-        albumName?.text = musicPlayer.playlist[0].albumTitle
         
         return musicPlayer.playlist.count
     }
@@ -44,10 +35,16 @@ class AlbumMusicDetailViewController: UIViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         NSLog("セルの設定")
         //tablecellのIDでUITableViewCellのインスタンスを生成
-        let cell = allAlbumMusicDetailTable?.dequeueReusableCell(withIdentifier: "AlbumMusicDetailCell", for: indexPath)
+        let cell = artistAlbumTable?.dequeueReusableCell(withIdentifier: "artistAlbumCell", for: indexPath)
         let item = musicPlayer.playlist[indexPath.row]
         
-        let label1 = allAlbumMusicDetailTable?.viewWithTag(1) as! UILabel
+        let size = CGSize()
+        let imageView = artistAlbumTable?.viewWithTag(1) as! UIImageView
+        if let artwork = item.artwork {
+            imageView.image = artwork.image(at: size)
+        }
+        
+        let label1 = artistAlbumTable?.viewWithTag(2) as! UILabel
         label1.text = item.title
         
         return cell!

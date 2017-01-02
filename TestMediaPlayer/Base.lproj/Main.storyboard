@@ -104,7 +104,7 @@
                 </swipeGestureRecognizer>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="vOn-id-Ma0"/>
             </objects>
-            <point key="canvasLocation" x="5.5999999999999996" y="214.54272863568218"/>
+            <point key="canvasLocation" x="-137" y="750"/>
         </scene>
         <!--All Music View Controller-->
         <scene sceneID="v66-f0-7G6">
@@ -175,7 +175,11 @@
                                             <segue destination="Jcv-Wi-AoZ" kind="show" id="Ilc-yl-eI6"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="artist" width="42" id="Ndi-7q-V9e"/>
+                                    <barButtonItem title="artist" width="42" id="Ndi-7q-V9e">
+                                        <connections>
+                                            <segue destination="6F5-Sc-mql" kind="show" id="qFV-AU-dad"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -187,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xnk-mV-zOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="-8.5457271364317844"/>
+            <point key="canvasLocation" x="945" y="-634"/>
         </scene>
         <!--Album Music View Controller-->
         <scene sceneID="7Y3-X8-6KB">
@@ -214,7 +218,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistMusicCell" id="74a-OY-H6T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumMusicCell" id="74a-OY-H6T">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="74a-OY-H6T" id="8Df-p5-4Jg">
@@ -254,27 +258,190 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Jcv-Wi-AoZ" id="LUK-XF-4SY"/>
-                                    <outlet property="delegate" destination="Jcv-Wi-AoZ" id="iRO-zU-h40"/>
+                                    <outlet property="dataSource" destination="Jcv-Wi-AoZ" id="m1w-PD-UmY"/>
+                                    <outlet property="delegate" destination="Jcv-Wi-AoZ" id="xT1-Ab-3o6"/>
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAr-Qb-SMP">
                                 <rect key="frame" x="0.0" y="624" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="artist" id="YGn-Fd-8VV"/>
+                                    <barButtonItem title="music" id="C97-cc-6NN">
+                                        <connections>
+                                            <segue destination="5qB-sd-SFK" kind="show" id="AAa-2Z-ZgT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="album" id="cye-dW-iIp"/>
+                                    <barButtonItem title="artist" id="YGn-Fd-8VV">
+                                        <connections>
+                                            <segue destination="6F5-Sc-mql" kind="show" id="TCa-uE-eon"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="allArtistMusicTable" destination="KD4-ad-32y" id="Dup-x8-B9F"/>
+                        <outlet property="allAlbumMusicTable" destination="KD4-ad-32y" id="Neg-0f-Yly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozt-Kd-T9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="749.7751124437782"/>
+        </scene>
+        <!--Artist Music View Controller-->
+        <scene sceneID="J8U-yb-QNE">
+            <objects>
+                <viewController id="6F5-Sc-mql" customClass="ArtistMusicViewController" customModule="TestMediaPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oTW-7B-Idq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q7K-nl-hOB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U8Z-jt-tHR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnq-dK-YFV">
+                                <rect key="frame" x="38" y="28" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="kWr-aE-ESr"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdc-Ke-pKj">
+                                <rect key="frame" x="0.0" y="66" width="375" height="558"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistMusicCell" id="pby-tY-yfk">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pby-tY-yfk" id="zl1-3S-vgI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfZ-la-Y2j">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xKC-wv-VBf" kind="show" id="CTl-zU-4Xu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6F5-Sc-mql" id="W1y-Gy-YdM"/>
+                                    <outlet property="delegate" destination="6F5-Sc-mql" id="yBO-0q-Fie"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48z-6P-hLJ">
+                                <rect key="frame" x="0.0" y="624" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="music" id="gGL-Ag-vbj">
+                                        <connections>
+                                            <segue destination="5qB-sd-SFK" kind="show" id="vUH-N5-89K"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="album" id="Yml-Ro-ZBe">
+                                        <connections>
+                                            <segue destination="Jcv-Wi-AoZ" kind="show" id="JfI-0M-1fn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="artist" id="cWV-gv-JfX"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistMusicTable" destination="pdc-Ke-pKj" id="Aeb-vk-g9G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gc4-Nz-qjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.79999999999995" y="1808.5457271364319"/>
+        </scene>
+        <!--Artist Album View Controller-->
+        <scene sceneID="dVY-HZ-Bw3">
+            <objects>
+                <viewController id="xKC-wv-VBf" customClass="ArtistAlbumViewController" customModule="TestMediaPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tDL-oV-XVL"/>
+                        <viewControllerLayoutGuide type="bottom" id="PnG-TM-aCl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jWB-h9-qND">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7X-pE-U77">
+                                <rect key="frame" x="33" y="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="kZ1-yF-kxk"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JIj-no-WXX">
+                                <rect key="frame" x="0.0" y="66" width="375" height="558"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistAlbumCell" id="qjf-J3-XcP">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qjf-J3-XcP" id="JvB-CA-Zrt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRj-cV-YmJ">
+                                                    <rect key="frame" x="72" y="11" width="295" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Dl-fV-pq7">
+                                                    <rect key="frame" x="8" y="-3" width="46" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xKC-wv-VBf" id="TMA-nf-n1v"/>
+                                    <outlet property="delegate" destination="xKC-wv-VBf" id="fMw-g4-eD6"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-VM-SjX">
+                                <rect key="frame" x="0.0" y="624" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="artist" id="Tgq-Ox-T2A">
+                                        <connections>
+                                            <segue destination="6F5-Sc-mql" kind="show" id="ebh-wu-49z"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistAlbumTable" destination="JIj-no-WXX" id="XKl-30-kHs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocD-Fm-1YK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205.5999999999999" y="1808.5457271364319"/>
         </scene>
         <!--Album Music Detail View Controller-->
         <scene sceneID="sbp-K1-AGu">
@@ -338,8 +505,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="9fO-Tf-qma" id="NS5-uu-96K"/>
-                                    <outlet property="delegate" destination="9fO-Tf-qma" id="kbJ-rZ-SSe"/>
+                                    <outlet property="dataSource" destination="9fO-Tf-qma" id="jaB-iI-vaS"/>
+                                    <outlet property="delegate" destination="9fO-Tf-qma" id="sZ8-nP-X7J"/>
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ID-c2-vN0">
@@ -358,18 +525,20 @@
                     </view>
                     <connections>
                         <outlet property="albumName" destination="Okp-b8-hV0" id="odR-Ew-OCy"/>
-                        <outlet property="allArtistMusicDetailTable" destination="T5R-ui-whs" id="mVi-BC-ZKI"/>
+                        <outlet property="allAlbumMusicDetailTable" destination="T5R-ui-whs" id="SCc-3N-6vl"/>
                         <outlet property="artistName" destination="Q7I-GJ-WWg" id="ZEE-mX-8fK"/>
                         <outlet property="imageView" destination="X9Z-lU-rnM" id="GZl-2b-QT3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIC-wf-lL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749.5999999999999" y="749.7751124437782"/>
+            <point key="canvasLocation" x="2206" y="750"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ilc-yl-eI6"/>
-        <segue reference="4WI-W7-jeu"/>
+        <segue reference="ebh-wu-49z"/>
+        <segue reference="JfI-0M-1fn"/>
+        <segue reference="AAa-2Z-ZgT"/>
+        <segue reference="kZ1-yF-kxk"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 
 class AlbumMusicViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    @IBOutlet var allArtistMusicTable: UITableView?
+    @IBOutlet var allAlbumMusicTable: UITableView?
     
     var musicPlayer = MusicPlayer()
 
@@ -18,8 +18,8 @@ class AlbumMusicViewController: UIViewController,UITableViewDataSource,UITableVi
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         musicPlayer.updateAlbumlist()
-        allArtistMusicTable?.delegate = self
-        allArtistMusicTable?.dataSource = self
+        allAlbumMusicTable?.delegate = self
+        allAlbumMusicTable?.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,19 +36,19 @@ class AlbumMusicViewController: UIViewController,UITableViewDataSource,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         NSLog("セルの設定")
         //tablecellのIDでUITableViewCellのインスタンスを生成
-        let cell = allArtistMusicTable?.dequeueReusableCell(withIdentifier: "artistMusicCell", for: indexPath)
+        let cell = allAlbumMusicTable?.dequeueReusableCell(withIdentifier: "albumMusicCell", for: indexPath)
         let item = musicPlayer.albumPlaylist[indexPath.row]
         
         let size = CGSize()
-        let imageView = allArtistMusicTable?.viewWithTag(1) as! UIImageView
+        let imageView = allAlbumMusicTable?.viewWithTag(1) as! UIImageView
         if let artwork = item.representativeItem?.artwork {
             imageView.image = artwork.image(at: size)
         }
         
-        let label1 = allArtistMusicTable?.viewWithTag(2) as! UILabel
+        let label1 = allAlbumMusicTable?.viewWithTag(2) as! UILabel
         label1.text = item.representativeItem?.albumTitle
         
-        let label2 = allArtistMusicTable?.viewWithTag(3) as! UILabel
+        let label2 = allAlbumMusicTable?.viewWithTag(3) as! UILabel
         label2.text = item.representativeItem?.artist
         
         return cell!
