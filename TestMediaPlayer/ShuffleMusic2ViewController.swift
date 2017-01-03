@@ -1,47 +1,31 @@
 //
-//  ShuffleMusicViewController.swift
+//  ShuffleMusic2ViewController.swift
 //  TestMediaPlayer
 //
-//  Created by Takeru on 2017/01/02.
+//  Created by Takeru on 2017/01/03.
 //  Copyright © 2017年 Takeru. All rights reserved.
 //
 
 import UIKit
 
-class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    
-    @IBOutlet var shuffleMusicTable: UITableView?
+class ShuffleMusic2ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet var shuffleMusic2Table: UITableView?
+    
     var musicPlayer = MusicPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         musicPlayer.updateSufflePlaylist()
-        shuffleMusicTable?.delegate = self
-        shuffleMusicTable?.dataSource = self
+        shuffleMusic2Table?.delegate = self
+        shuffleMusic2Table?.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-     ゴミコード
-    @IBAction func shuffle(sender: UIButton) {
-        NSLog("pushOK")
-        //shuffleMusicTable?.beginUpdates()
-        musicPlayer.updateSufflePlaylist()
-        //shuffleMusicTable?.reloadData()
-        //shuffleMusicTable?.endUpdates()
-        shuffleMusicTable = nil
-        //shuffleMusicTable?.performSelector(onMainThread: #selector(shuffleMusicTable?.reloadData), with: nil, waitUntilDone: false)
-        shuffleMusicTable?.delegate = self
-        shuffleMusicTable?.dataSource = self
-        shuffleMusicTable?.reloadData()
-        NSLog("pushEND")
-    }
-     */
     
     //tableview のセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,19 +37,19 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
         NSLog("セルの設定")
         NSLog(String(indexPath.row))
         //tablecellのIDでUITableViewCellのインスタンスを生成
-        let cell = shuffleMusicTable?.dequeueReusableCell(withIdentifier: "shuffleMusicCell", for: indexPath)
+        let cell = shuffleMusic2Table?.dequeueReusableCell(withIdentifier: "shuffleMusic2Cell", for: indexPath)
         let item = musicPlayer.playlist[indexPath.row]
         
         let size = CGSize()
-        let imageView = shuffleMusicTable?.viewWithTag(1) as! UIImageView
+        let imageView = shuffleMusic2Table?.viewWithTag(1) as! UIImageView
         if let artwork = item.artwork {
             imageView.image = artwork.image(at: size)
         }
         
-        let label1 = shuffleMusicTable?.viewWithTag(2) as! UILabel
+        let label1 = shuffleMusic2Table?.viewWithTag(2) as! UILabel
         label1.text = item.title
         
-        let label2 = shuffleMusicTable?.viewWithTag(3) as! UILabel
+        let label2 = shuffleMusic2Table?.viewWithTag(3) as! UILabel
         let albumTitle: String = item.albumTitle!
         let artist: String = item.artist!
         label2.text = artist + "-" + albumTitle

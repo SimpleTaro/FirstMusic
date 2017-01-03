@@ -21,6 +21,7 @@
 		CEA357AA1E13F5B6008EFD99 /* ArtistMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357A91E13F5B6008EFD99 /* ArtistMusicViewController.swift */; };
 		CEA357AE1E19273A008EFD99 /* ArtistAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357AD1E19273A008EFD99 /* ArtistAlbumViewController.swift */; };
 		CEA357B01E1A2907008EFD99 /* ShuffleMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357AF1E1A2907008EFD99 /* ShuffleMusicViewController.swift */; };
+		CEA357B21E1B83B0008EFD99 /* ShuffleMusic2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA357B11E1B83B0008EFD99 /* ShuffleMusic2ViewController.swift */; };
 		CEB55C0B1DFD26260099AFC7 /* AllMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */; };
 		CEF024D91E0CFCDB004573E9 /* MusicPlayerAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */; };
 		CEF024DB1E0D0376004573E9 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */; };
@@ -64,6 +65,7 @@
 		CEA357A91E13F5B6008EFD99 /* ArtistMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistMusicViewController.swift; sourceTree = "<group>"; };
 		CEA357AD1E19273A008EFD99 /* ArtistAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistAlbumViewController.swift; path = ../ArtistAlbumViewController.swift; sourceTree = "<group>"; };
 		CEA357AF1E1A2907008EFD99 /* ShuffleMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleMusicViewController.swift; sourceTree = "<group>"; };
+		CEA357B11E1B83B0008EFD99 /* ShuffleMusic2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleMusic2ViewController.swift; sourceTree = "<group>"; };
 		CEB55C0A1DFD26260099AFC7 /* AllMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMusicViewController.swift; sourceTree = "<group>"; };
 		CEF024D81E0CFCDB004573E9 /* MusicPlayerAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerAdmin.swift; sourceTree = "<group>"; };
 		CEF024DA1E0D0376004573E9 /* MusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				CE29FDA11DE53EE500E8A33C /* AppDelegate.swift */,
 				CE29FDA31DE53EE500E8A33C /* ViewController.swift */,
 				CE29FDA51DE53EE500E8A33C /* Main.storyboard */,
+				CEA357B11E1B83B0008EFD99 /* ShuffleMusic2ViewController.swift */,
 				CEA357AF1E1A2907008EFD99 /* ShuffleMusicViewController.swift */,
 				CEA357AD1E19273A008EFD99 /* ArtistAlbumViewController.swift */,
 				CEA357A91E13F5B6008EFD99 /* ArtistMusicViewController.swift */,
@@ -310,6 +313,7 @@
 				CEA357A81E10051F008EFD99 /* AlbumMusicDetailViewController.swift in Sources */,
 				CEF024DB1E0D0376004573E9 /* MusicPlayer.swift in Sources */,
 				CEA357A61E0FE39E008EFD99 /* AlbumMusicViewController.swift in Sources */,
+				CEA357B21E1B83B0008EFD99 /* ShuffleMusic2ViewController.swift in Sources */,
 				CEA357AE1E19273A008EFD99 /* ArtistAlbumViewController.swift in Sources */,
 				CE29FDA21DE53EE500E8A33C /* AppDelegate.swift in Sources */,
 			);
