@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -18,6 +19,9 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         musicPlayer.updateSufflePlaylist()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.editButtonItem.title = "Edit"
+        //self.title = "Edit"
         shuffleMusicTable?.delegate = self
         shuffleMusicTable?.dataSource = self
     }
@@ -80,6 +84,41 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
         
         // 選択を解除しておく
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //ボタン押下時に呼ばれるメソッド
+    @IBAction func changeMode(sender: AnyObject) {
+        //通常モードと編集モードを切り替える。
+        if(shuffleMusicTable?.isEditing == true) {
+            shuffleMusicTable?.isEditing = false
+        } else {
+            shuffleMusicTable?.isEditing = true
+        }
+    }
+    
+    //テーブルビュー編集時に呼ばれるメソッド
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        //削除の場合、配列からデータを削除する。
+        if( editingStyle == UITableViewCellEditingStyle.delete) {
+            musicPlayer.playlist.remove(at: indexPath.row)
+        }
+        
+        //テーブルの再読み込み
+        tableView.reloadData()
+    }
+    
+    //並び替え時に呼ばれるメソッド
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath){
+        
+        //移動されたデータを取得する。
+        let moveData = musicPlayer.playlist[sourceIndexPath.row]
+        
+        //元の位置のデータを配列から削除する。
+        musicPlayer.playlist.remove(at: sourceIndexPath.row)
+        
+        //移動先の位置にデータを配列に挿入する。
+        musicPlayer.playlist.insert(moveData, at:destinationIndexPath.row)
     }
     
 
