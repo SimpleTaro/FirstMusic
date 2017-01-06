@@ -60,4 +60,26 @@ class MusicPlayer: MusicPlayerAdmin {
             }
         }
     }
+    
+    // シャッフルされたプレイリストを作成する
+    func updateSufflePlaylist() {
+        let query = MPMediaQuery.songs()
+        var allSongs = query.items
+        let songCount = allSongs?.count
+        var tmpPlaylist = [MPMediaItem](allSongs![0..<songCount!])
+        shufflePlaylist(array: &tmpPlaylist)
+        playlist = tmpPlaylist
+    }
+    
+    // プレイリストをシャッフル
+    func shufflePlaylist( array: inout [MPMediaItem]) {
+        let max = array.count
+        for no in (0...max*2) {
+            let i = no % max
+            let j = Int(arc4random_uniform(UInt32(max)))
+            if i != j {
+                swap(&array[i], &array[j])
+            }
+        }
+    }
 }
