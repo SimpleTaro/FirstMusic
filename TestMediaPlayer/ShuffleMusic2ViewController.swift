@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class ShuffleMusic2ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -18,6 +19,8 @@ class ShuffleMusic2ViewController: UIViewController,UITableViewDataSource,UITabl
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         musicPlayer.updateSufflePlaylist()
+        musicPlayer.updatePlaylist()
+        
         shuffleMusic2Table?.delegate = self
         shuffleMusic2Table?.dataSource = self
     }
@@ -56,8 +59,25 @@ class ShuffleMusic2ViewController: UIViewController,UITableViewDataSource,UITabl
         
         return cell!
     }
+    @IBAction func changeMode(_ sender: Any) {
+        //通常モードと編集モードを切り替える。
+        if(shuffleMusic2Table?.isEditing == true) {
+            shuffleMusic2Table?.isEditing = false
+            
+            //キューに詰め込む
+            musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
+        } else {
+            shuffleMusic2Table?.isEditing = true
+            musicPlayer.player.stop()
+            musicPlayer.player.nowPlayingItem = MPMediaItem.init()
+            
+            musicPlayer.clearQueue3()
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
         
         //タッチされたセルの曲を再生
         musicPlayer.play(number: indexPath.row)
@@ -65,7 +85,31 @@ class ShuffleMusic2ViewController: UIViewController,UITableViewDataSource,UITabl
         // 選択を解除しておく
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
+    //テーブルビュー編集時に呼ばれるメソッド
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        //削除の場合、配列からデータを削除する。
+        if( editingStyle == UITableViewCellEditingStyle.delete) {
+            musicPlayer.playlist.remove(at: indexPath.row)
+        }
+        
+        //テーブルの再読み込み
+        tableView.reloadData()
+    }
     
+    //並び替え時に呼ばれるメソッド
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath){
+        
+        //移動されたデータを取得する。
+        let moveData = musicPlayer.playlist[sourceIndexPath.row]
+        
+        //元の位置のデータを配列から削除する。
+        musicPlayer.playlist.remove(at: sourceIndexPath.row)
+        
+        //移動先の位置にデータを配列に挿入する。
+        musicPlayer.playlist.insert(moveData, at:destinationIndexPath.row)
+    }
 
     /*
     // MARK: - Navigation

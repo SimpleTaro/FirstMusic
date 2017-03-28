@@ -12,12 +12,14 @@ import MediaPlayer
 class MusicPlayer: MusicPlayerAdmin {
     
     //全曲取得プレイリストを更新
-    func updatePlaylist() {
+    func updatePlaylistCollection() {
         let query = MPMediaQuery.songs()
-        if var allSongs = query.items {
+        //if var allSongs = query.items {
+        if var allSongs = query.collections {
             let songCount = allSongs.count
             NSLog(String(allSongs.count))
-            playlist = [MPMediaItem](allSongs[0..<songCount])
+            //playlist = [MPMediaItem](allSongs[0..<songCount])
+            playlistCollection = [MPMediaItemCollection](allSongs[0..<songCount])
         }
     }
     
@@ -44,6 +46,21 @@ class MusicPlayer: MusicPlayerAdmin {
             player.play()
         }
     }
+    /*
+    func play(number: Int) {
+        if 0 <= number && number < historicalPlaylist.count {
+            player.nowPlayingItem = historicalPlaylist[number]
+            player.play()
+        }
+    }
+    */
+    
+    //選択されたセルのアルバムをプレイリストに更新
+    func updatePlaylist() {
+        for i in 0..<playlistCollection.count {
+            playlist += playlistCollection[i].items
+        }
+    }
     
     //選択されたセルのアルバムをプレイリストに更新
     func updateAlbumPlaylist(number: Int) {
@@ -64,15 +81,21 @@ class MusicPlayer: MusicPlayerAdmin {
     // シャッフルされたプレイリストを作成する
     func updateSufflePlaylist() {
         let query = MPMediaQuery.songs()
-        var allSongs = query.items
-        let songCount = allSongs?.count
-        var tmpPlaylist = [MPMediaItem](allSongs![0..<songCount!])
-        shufflePlaylist(array: &tmpPlaylist)
-        playlist = tmpPlaylist
+        //if var allSongs = query.items {
+        if var allSongs = query.collections {
+            let songCount = allSongs.count
+            NSLog(String(allSongs.count))
+            //NSLog((allSongs.first?.albumArtist)!)
+            //playlist = [MPMediaItem](allSongs[0..<songCount])
+            playlistCollection = [MPMediaItemCollection](allSongs[0..<songCount])
+            //shufflePlaylist(array: &playlist)
+            shufflePlaylist(array: &playlistCollection)
+        }
     }
     
     // プレイリストをシャッフル
-    func shufflePlaylist( array: inout [MPMediaItem]) {
+    //func shufflePlaylist( array: inout [MPMediaItem]) {
+    func shufflePlaylist( array: inout [MPMediaItemCollection]) {
         let max = array.count
         for no in (0...max*2) {
             let i = no % max

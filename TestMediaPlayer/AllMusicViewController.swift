@@ -18,10 +18,10 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("Load")
-        // Do any additional setup after loading the view.
+        musicPlayer.updatePlaylistCollection()
         musicPlayer.updatePlaylist()
-        allMusicTable?.delegate = self
-        allMusicTable?.dataSource = self
+        //allMusicTable?.delegate = self
+        //allMusicTable?.dataSource = self
        // allMusicTable?.register(UITableViewCell.self(_:NSObject), forCellReuseIdentifier: "musicCell")
     }
 
@@ -34,6 +34,7 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
         return musicPlayer.playlist.count
+        //return musicPlayer.playlistCollection.count
     }
     //各セルの要素を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +42,7 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
         //tablecellのIDでUITableViewCellのインスタンスを生成
         let cell = allMusicTable?.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath)
         let item = musicPlayer.playlist[indexPath.row]
+        //let item = musicPlayer.playlistCollection[indexPath.row].items[0]
         
         let size = CGSize()
         let imageView = allMusicTable?.viewWithTag(1) as! UIImageView
@@ -60,6 +62,9 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //musicPlayer.updatePlaylist()
+        musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
         
         //タッチされたセルの曲を再生
         musicPlayer.play(number: indexPath.row)

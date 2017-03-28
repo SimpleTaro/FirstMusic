@@ -19,9 +19,8 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         musicPlayer.updateSufflePlaylist()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.editButtonItem.title = "Edit"
-        //self.title = "Edit"
+        musicPlayer.updatePlaylist()
+
         shuffleMusicTable?.delegate = self
         shuffleMusicTable?.dataSource = self
     }
@@ -30,22 +29,6 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-     ゴミコード
-    @IBAction func shuffle(sender: UIButton) {
-        NSLog("pushOK")
-        //shuffleMusicTable?.beginUpdates()
-        musicPlayer.updateSufflePlaylist()
-        //shuffleMusicTable?.reloadData()
-        //shuffleMusicTable?.endUpdates()
-        shuffleMusicTable = nil
-        //shuffleMusicTable?.performSelector(onMainThread: #selector(shuffleMusicTable?.reloadData), with: nil, waitUntilDone: false)
-        shuffleMusicTable?.delegate = self
-        shuffleMusicTable?.dataSource = self
-        shuffleMusicTable?.reloadData()
-        NSLog("pushEND")
-    }
-     */
     
     //tableview のセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +62,8 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
+        
         //タッチされたセルの曲を再生
         musicPlayer.play(number: indexPath.row)
         
@@ -86,13 +71,20 @@ class ShuffleMusicViewController: UIViewController,UITableViewDataSource,UITable
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //ボタン押下時に呼ばれるメソッド
+    //編集ボタン押下時に呼ばれるメソッド
     @IBAction func changeMode(sender: AnyObject) {
         //通常モードと編集モードを切り替える。
         if(shuffleMusicTable?.isEditing == true) {
             shuffleMusicTable?.isEditing = false
+            
+            //キューに詰め込む
+            musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
         } else {
             shuffleMusicTable?.isEditing = true
+            musicPlayer.player.stop()
+            musicPlayer.player.nowPlayingItem = MPMediaItem.init()
+
+            musicPlayer.clearQueue3()
         }
     }
     
