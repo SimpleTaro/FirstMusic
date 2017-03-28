@@ -74,6 +74,7 @@ class ArtistMusicViewController: UIViewController,UITableViewDataSource,UITableV
         
         let artistName = String(describing: albumArtistArray[indexPath.row])
         musicPlayer.updateArtistAlbumMusiclist(artistName: artistName)
+        musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
         
         // 選択を解除しておく
         tableView.deselectRow(at: indexPath, animated: true)

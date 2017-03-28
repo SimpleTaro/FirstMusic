@@ -587,6 +587,11 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="FUN-Lb-BiC">
+                                            <connections>
+                                                <action selector="changeMode:" destination="IM9-lF-Flm" id="w4f-zz-HBm"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -769,9 +774,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="UaY-lp-TZL"/>
-        <segue reference="tS0-OU-t9x"/>
-        <segue reference="QTG-fJ-WrE"/>
-        <segue reference="8iX-kk-iYu"/>
-        <segue reference="QAL-a5-Imn"/>
+        <segue reference="ZYm-8F-geB"/>
+        <segue reference="jnb-Rq-MbP"/>
+        <segue reference="wzI-nl-McV"/>
+        <segue reference="cK6-AW-03k"/>
     </inferredMetricsTieBreakers>
 </document>

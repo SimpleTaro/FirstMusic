@@ -57,7 +57,7 @@ class AlbumMusicViewController: UIViewController,UITableViewDataSource,UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         musicPlayer.updateAlbumPlaylist(number: indexPath.row)
-
+        musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
         // 選択を解除しておく
         tableView.deselectRow(at: indexPath, animated: true)
     }

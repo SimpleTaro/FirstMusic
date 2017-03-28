@@ -16,12 +16,12 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var songLabel: UILabel!
     var player = MPMusicPlayerController()
+    var musicPlayer = MusicPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //player = MPMusicPlayerController.applicationMusicPlayer()
+
         player = MPMusicPlayerController.systemMusicPlayer()
         
         // 再生中のItemが変わった時に通知を受ける
@@ -41,11 +41,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let allMusicViewController:AllMusicViewController = segue.destination as! AllMusicViewController
-//        allMusicViewController.player = self.player
-//    }
     
     @IBAction func upSwiped() {
         //MPMediaPickerControllerのインスタンスを作成
@@ -87,6 +82,14 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
             updateSongInformationUI(mediaItem)
         }
     }
+    
+    // 音符ボタンが押させた時にプレイリストを更新する
+    //@IBAction func selectMusic(_ sender: Any) {
+    //    NSLog("updatePlaylist")
+    //    NSLog(String(musicPlayer.playlistCollection.count))
+    //    musicPlayer.updatePlaylistCollection()
+    //    musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
+    //}
     
     func updateSongInformationUI(_ mediaItem: MPMediaItem) {
         // 曲の情報表示
