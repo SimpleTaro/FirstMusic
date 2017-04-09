@@ -20,9 +20,6 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
         NSLog("Load")
         musicPlayer.updatePlaylistCollection()
         musicPlayer.updatePlaylist()
-        //allMusicTable?.delegate = self
-        //allMusicTable?.dataSource = self
-       // allMusicTable?.register(UITableViewCell.self(_:NSObject), forCellReuseIdentifier: "musicCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +31,6 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
         return musicPlayer.playlist.count
-        //return musicPlayer.playlistCollection.count
     }
     //各セルの要素を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +38,6 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
         //tablecellのIDでUITableViewCellのインスタンスを生成
         let cell = allMusicTable?.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath)
         let item = musicPlayer.playlist[indexPath.row]
-        //let item = musicPlayer.playlistCollection[indexPath.row].items[0]
         
         let size = CGSize()
         let imageView = allMusicTable?.viewWithTag(1) as! UIImageView
@@ -63,7 +58,6 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //musicPlayer.updatePlaylist()
         musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
         
         //タッチされたセルの曲を再生
@@ -72,33 +66,4 @@ class AllMusicViewController: UIViewController,UITableViewDataSource,UITableView
         // 選択を解除しておく
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//        
-//        let viewController:ViewController = segue.destination as! ViewController
-//        
-//        if let mediaItem = player.nowPlayingItem {
-//            viewController.artistLabel.text = mediaItem.artist ?? "不明なアーティスト"
-//            viewController.albumLabel.text = mediaItem.albumTitle ?? "不明なアルバム"
-//            viewController.songLabel.text = mediaItem.title ?? "不明な曲"
-//        
-//            // アートワークの表示
-//            if let artwork = mediaItem.artwork {
-//                let image = artwork.image(at: viewController.imageView.bounds.size)
-//                viewController.imageView.image = image
-//            } else {
-//                // アートワークがない時
-//                // 今回は灰色にした
-//                viewController.imageView.image = nil
-//                viewController.imageView.backgroundColor = UIColor.gray
-//            }
-//        }
-//    }
-    
-
 }
