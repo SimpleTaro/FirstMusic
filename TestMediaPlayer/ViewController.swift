@@ -83,14 +83,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         }
     }
     
-    // 音符ボタンが押させた時にプレイリストを更新する
-    //@IBAction func selectMusic(_ sender: Any) {
-    //    NSLog("updatePlaylist")
-    //    NSLog(String(musicPlayer.playlistCollection.count))
-    //    musicPlayer.updatePlaylistCollection()
-    //    musicPlayer.playlistToQueue(playlist: musicPlayer.playlist)
-    //}
-    
     func updateSongInformationUI(_ mediaItem: MPMediaItem) {
         // 曲の情報表示
         // (a ?? b は、a != nil ? a! : bを示す演算子です)

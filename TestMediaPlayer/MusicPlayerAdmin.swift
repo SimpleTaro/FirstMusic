@@ -14,12 +14,7 @@ class MusicPlayerAdmin: NSObject {
     
     let player = MPMusicPlayerController.systemMusicPlayer()
     //作成したプレイリスト
-    var playlist = [MPMediaItem]() /*{
-        didSet {
-            playlistToQueue()
-        }
-    }
- */
+    var playlist = [MPMediaItem]()
     var playlistCollection = [MPMediaItemCollection]()
     
     //一時退避プレイリスト
@@ -56,8 +51,6 @@ class MusicPlayerAdmin: NSObject {
     }
     
     func clearQueue3(){
-        //player.stop()
-        //player.nowPlayingItem = MPMediaItem.init()
         let q = MPMediaQuery.init()
         player.setQueue(with: q)
     }

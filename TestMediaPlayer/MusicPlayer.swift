@@ -18,7 +18,6 @@ class MusicPlayer: MusicPlayerAdmin {
         if var allSongs = query.collections {
             let songCount = allSongs.count
             NSLog(String(allSongs.count))
-            //playlist = [MPMediaItem](allSongs[0..<songCount])
             playlistCollection = [MPMediaItemCollection](allSongs[0..<songCount])
         }
     }
@@ -46,16 +45,8 @@ class MusicPlayer: MusicPlayerAdmin {
             player.play()
         }
     }
-    /*
-    func play(number: Int) {
-        if 0 <= number && number < historicalPlaylist.count {
-            player.nowPlayingItem = historicalPlaylist[number]
-            player.play()
-        }
-    }
-    */
     
-    //選択されたセルのアルバムをプレイリストに更新
+    //プレイリストに更新
     func updatePlaylist() {
         for i in 0..<playlistCollection.count {
             playlist += playlistCollection[i].items
@@ -85,10 +76,7 @@ class MusicPlayer: MusicPlayerAdmin {
         if var allSongs = query.collections {
             let songCount = allSongs.count
             NSLog(String(allSongs.count))
-            //NSLog((allSongs.first?.albumArtist)!)
-            //playlist = [MPMediaItem](allSongs[0..<songCount])
             playlistCollection = [MPMediaItemCollection](allSongs[0..<songCount])
-            //shufflePlaylist(array: &playlist)
             shufflePlaylist(array: &playlistCollection)
         }
     }
